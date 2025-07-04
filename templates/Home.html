@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <title>St Clair Careers</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #FFFFFF;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 40px;
+            font-family: Roboto;
+            font-weight: normal;
+            background-color: #007A33;
+            color: #fff2f2;
+            padding: 10px;
+            margin: 10px 0 10px 0;
+        }
+
+        #banner {
+            height: 360px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        h2 {
+            font-family: Roboto;
+            font-size: 32px;
+            color: #333333;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        p {
+            font-family: Roboto;
+            color: #4c4c4c;
+        }
+
+        .main-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        h4,h5{
+            color: #4c4c4c;
+            font-family: Roboto;
+        }
+        .jobs-section{
+            background-color: #F4F4F4;
+            padding: 18px;
+            border-radius: 3% ;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="about" class="container main-section">
+
+    <h1>Welcome to {{ company_name }} Careers</h1>
+    <img id="banner" class="img-fluid" src="/static/images/banner.jpg" alt="banner" height="320"/>
+
+    <h2>About St Clair</h2>
+    <p>Welcome to the St. Clair Job Portal — your bridge between education and opportunity.
+
+        Our platform is designed to connect St. Clair College students and graduates with employers seeking fresh
+        talent,
+        skilled professionals, and passionate individuals. Whether you're a student looking for part-time work, a recent
+        graduate ready to launch your career, or an employer seeking dedicated workers, our portal is your one-stop
+        solution.
+
+        We aim to support career development, work-integrated learning, and employer engagement by offering:
+
+        A centralized hub for job postings across all industries
+
+        Resume building and interview preparation tools
+
+        Access to co-op and internship opportunities
+
+        Real-time job updates and personalized recommendations
+
+        Driven by a commitment to student success and community partnership, the St. Clair Job Portal empowers our users
+        to
+        explore, connect, and grow.
+
+        Let’s build your future — together.
+
+    </p>
+
+
+    <h2>Open Positions</h2>
+    <div class="mb-2 jobs-section">
+        {% for job in jobs %}
+        {% include 'jobitems.html' %}
+        {% endfor %}
+
+    </div>
+    <div class="mb-4 text-center">
+        <button class="btn btn-outline-success">Contact Us</button>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
