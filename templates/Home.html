@@ -22,8 +22,7 @@
             font-size: 40px;
             font-family: Roboto;
             font-weight: normal;
-            background-color: #007A33;
-            color: #fff2f2;
+
             padding: 10px;
             margin: 10px 0 10px 0;
         }
@@ -51,28 +50,44 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+
         }
-        h4,h5{
+
+        h4, h5 {
             color: #4c4c4c;
             font-family: Roboto;
         }
-        .jobs-section{
+
+        .jobs-section {
             background-color: #F4F4F4;
             padding: 18px;
-            border-radius: 3% ;
+            border-radius: 3%;
+        }
+
+        header {
+            background-color: #007A33;
+            margin-bottom: 20px;
+        }
+
+        .navbar-brand {
+            color: #c1c1c1 !important; /* St. Clair Green */
+            font-weight: bold;
+            font-size: 1.2rem;
         }
 
 
     </style>
 </head>
 <body>
+<header>
+    {% include 'navbar.html' %}
+</header>
 <div id="about" class="container main-section">
-
-    <h1>Welcome to {{ company_name }} Careers</h1>
     <img id="banner" class="img-fluid" src="/static/images/banner.jpg" alt="banner" height="320"/>
 
-    <h2>About St Clair</h2>
-    <p>Welcome to the St. Clair Job Portal — your bridge between education and opportunity.
+    <h2>{{ company_name }} careers</h2>
+    <div class="row">
+        <p class="col-6">Welcome to the St. Clair Job Portal — your bridge between education and opportunity.
 
         Our platform is designed to connect St. Clair College students and graduates with employers seeking fresh
         talent,
@@ -97,19 +112,25 @@
         Let’s build your future — together.
 
     </p>
-
+        <img class="d-none d-md-block col-md-6" src="/static/images/working_peoples.avif" alt="working corporates at st clair" height="300px" style="border-radius: 4px">
+    </div>
 
     <h2>Job Openings</h2>
     <div class="mb-2 jobs-section">
         {% for job in jobs %}
-        {% include 'jobitems.html' %}
+            {% include 'jobitems.html' %}
         {% endfor %}
 
     </div>
     <div class="mb-4 text-center">
-        <button class="btn btn-outline-success">Contact Us</button>
+        <a type="button" href="mailto:careers@stclaircollege.ca?subject=Questions%20about%20job&body=My%20name%3A%20%3Cyour%20name%20goes%20here%3E%0D%0A%0D%0AMy%20Questions%3A%20%3Cyour%20questions%20related%20to%20job%3E" class="btn btn-outline-success">Contact Us</a>
     </div>
 </div>
+
+
+<footer>
+    {% include 'footer.html' %}
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
